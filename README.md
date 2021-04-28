@@ -1,5 +1,4 @@
 # Bodies and Abstractions
- ![](RackMultipart20210428-4-12myp52_html_f3071436365ec835.png)
 
 My project is mainly focused on the assumptions that algorithms make about us. These assumptions may not be totally accurate and there isn&#39;t much that us as simple users can usually do to stop these assumptions from being made and saved.
 
@@ -7,12 +6,6 @@ In this project, I make use of the Betaface API that according to their [website
 
 Along with the classification of gender and race, I found that this API was trying to predict if you had a double chin or not, if you are bald, if you have a big nose, etc. It is important to ask, why is it that the creators thought it was necessary for the tool to predict these features. What are they useful for? Again, we don&#39;t have the answers as we don&#39;t control what is done with these assumptions. Moreover, one of the predictions is on the user&#39;s attractiveness. What is it that it judges you on for it to think that you are attractive? Our personal characteristics are judged based on the algorithm&#39;s own standard of beauty. The standard that is set by the algorithm becomes universal. We all get measured on a scale that is controlled by the central entity and is out of our reach.
 
-![](RackMultipart20210428-4-12myp52_html_e307cbee9f27a6ac.png)
-
 This tool may misidentify your gender, your race, your age, etc. It may call you unattractive. It may call you old. It may say things you are insecure about without any emotion. Through this process, I just want to make the viewer conscious about what kind of assumptions are usually being made about them. These assumptions sum up to make your profile. Disintegrating the real, complex human life into predictable, abstract bodies stored as code. While this process is mostly done behind the scenes, in my project I wish to show this process in a more confrontational manner. These assumptions can be quite personal and even though we may feel as though collection of our data and computers making assumptions may not bother us, in this confrontational setting, it can make us feel weirded out or concerned.
 
 In this project, I am trying to communicate a story. I&#39;ve made use of p5.js and ml5.js libraries to achieve my goal. The user enters the website to be greeted by a friendly voice. It notifies you that it is going to &quot;take a good look at you&quot;. You can&#39;t stop it. It just happens. After the response has been loaded, the voice shouts out, loud and clear, its assumptions that may be inaccurate or embarrassing to you. However, the algorithm doesn&#39;t care as it continues to say what it thinks about you. The image of the user slowly starts fading as the voice talks until a prompt is shown on the screen. The user is now unrecognizable, merely a shadow on all the assumptions that have been made. The prompt gives you the &quot;option&quot; to save the results. However, no matter how hard the user tries, the user can&#39;t refuse. The button is there, but it is not clickable. Then, as time passes, the results are saved automatically, the user has now disappeared from the screen. All that&#39;s left is the assumptions that the tool has made about the user. The user is greeted a goodbye and the website reloads, ready to greet another user.
-
-![](RackMultipart20210428-4-12myp52_html_2ee290ba1536b1ce.png)
-
-![](RackMultipart20210428-4-12myp52_html_48d1252605f5557b.png) ![](RackMultipart20210428-4-12myp52_html_4889c8f3058a979c.png)
