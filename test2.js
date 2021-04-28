@@ -28,10 +28,12 @@ function setup() {
   video.hide();
 }
 
+// some code from the ml5.js documentation about bodypix
 function videoReady() {
   bodypix.segment(video, gotResults);
 }
 
+// some booleans to keep track of the sequence
 let start = true;
 let called = false;
 let called2 = false;
@@ -72,6 +74,7 @@ function draw() {
     }
 }
 
+// showing the dialog box
 function showOption() {
     let div = document.createElement("div");
     div.classList.add('box');
@@ -127,17 +130,20 @@ function welcomeMessage() {
     speak("Hello. I see you. How are you?. I will just take a good look at you.", {rate: 0.8, pitch: 0});
 }
 
+// function to handle speaking, works well in Edge. Chrome has some internal bugs
 function speak(text, value) {
     let utterance = new SpeechSynthesisUtterance(text);
     utterance.pitch = value.pitch;
     utterance.rate = value.rate;
     synth.speak(utterance);
 }
-  
+
+// adding text to background
 function setBG(text) {
     document.querySelector('.container').innerText = text;
 }
 
+// function that handles api call
 function callAPI() {
     let blob = dataURItoBlob(text);
     const data = new FormData();
@@ -147,7 +153,8 @@ function callAPI() {
 
     const xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
-
+    
+  // loading indicator
     let h = document.createElement("h4");
     h.classList.add('loading');
     h.innerText = "Loading...";
@@ -160,6 +167,7 @@ function callAPI() {
         if (this.status == 200) {
           continueConversation(this.responseText);
         } else {
+          // reload the website and say sorry
           speak("Sorry, there has been an error. Let's try this again.", {rate: 0.8, pitch: 0});
           window.location.reload();
         }
@@ -167,12 +175,13 @@ function callAPI() {
     });
 
     xhr.open("POST", "https://betaface-face-recognition-v1.p.rapidapi.com/media/file");
-    xhr.setRequestHeader("x-rapidapi-key", "748b47f02cmshfdeb621a50425adp1d28c5jsn5b240c9ff29b");
+    xhr.setRequestHeader("x-rapidapi-key", "PUT-API-KEY-HERE");
     xhr.setRequestHeader("x-rapidapi-host", "betaface-face-recognition-v1.p.rapidapi.com");
 
     xhr.send(data);
 }
 
+// function to convert the response into text for the voice
 function continueConversation(res) {
   let convers = "I have made some observations.";
   let response = JSON.parse(res);
@@ -183,8 +192,6 @@ function continueConversation(res) {
   convers += "Your race is " + tags[31].value + ". ";
   let att = tags[3].value == "no" ? "not" : "";
   convers += "You are " + att + " attractive. ";
-  // att = tags[4].value == "no" ? "don't" : "";
-  // convers += "You " + att + " have bags under your eyes. ";
   att = tags[5].value == "no" ? "not" : "";
   convers += "You are " + att + " bald. ";
   att = tags[8].value == "no" ? "don't" : "";
@@ -197,11 +204,14 @@ function continueConversation(res) {
   convers += "You " + att + " have heavy makeup on. ";
   att = tags[5].value == "no" ? "not" : "";
   convers += "You are " + att + " young. ";
-
+  
+  // changing the text global variable to change the background
   text = convers;
   for (let i = 0; i < 200; i++) {
     text += convers;
   }
+  
+  // and increasing the font size
   document.querySelector('.container').style.fontSize = "16px";
   
   speak(convers, {rate: 0.7, pitch: 0});
@@ -209,10 +219,8 @@ function continueConversation(res) {
 
 
 
-
+// cool hack to convert base64 to blob for posting images. From: https://stackoverflow.com/questions/6850276/how-to-convert-dataurl-to-file-object-in-javascript
 function dataURItoBlob(dataURI) {
-  // convert base64 to raw binary data held in a string
-  // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
   var byteString = atob(dataURI.split(',')[1]);
 
   // separate out the mime component
@@ -225,12 +233,5 @@ function dataURItoBlob(dataURI) {
       ia[i] = byteString.charCodeAt(i);
   }
 
-  //Old Code
-  //write the ArrayBuffer to a blob, and you're done
-  //var bb = new BlobBuilder();
-  //bb.append(ab);
-  //return bb.getBlob(mimeString);
-
-  //New Code
   return new Blob([ab], {type: mimeString});
 }
