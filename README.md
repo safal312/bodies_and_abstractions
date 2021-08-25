@@ -2,6 +2,8 @@
 
 Youtube Demo: https://youtu.be/YaR-IbtMQfM
 
+Technologies Used: p5.js, ml5.js
+
 My project is mainly focused on the assumptions that algorithms make about us. These assumptions may not be totally accurate and there isn&#39;t much that us as simple users can usually do to stop these assumptions from being made and saved.
 
 In this project, I make use of the Betaface API that according to their [website](https://www.betaface.com/wpa/) has customers like 20th Century Fox, Disney, etc. Making assumptions about people&#39;s race, gender, etc. has been a popular selling point in recent times. Hikvision in China was called out for making an AI product for [&quot;Uyghur recognition&quot;](https://ipvm.com/reports/hikvision-uyghur). In the Western world too, the use of AI technologies like facial recognition is quite significant in [law enforcement](https://fas.org/sgp/crs/misc/R46586.pdf). However, there have been cases like that of [Robert WiIlliams](https://thenextweb.com/news/stop-calling-it-bias-ai-is-racist) where he was wrongfully arrested because of a faulty result of the facial recognition system that the authorities were using. Keeping these cases in mind, I wanted to comment on this issue through my project by highlighting these assumptions that are being made about us. Then, I started looking for providers that were doing these kinds of predictions for classification of social groups and other features. After a couple of searches, I was able to find this API, and I decided to make use of it.
